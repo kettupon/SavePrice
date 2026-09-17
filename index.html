@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#408d22" />
+    <meta name="description" content="บันทึกราคาสินค้าและเทียบความคุ้มค่าต่อหน่วย" />
+    <title>SavePrice — เก็บราคา เทียบความคุ้ม</title>
+    <style>
+:root{font-family:'Noto Sans Thai',sans-serif;color:#183447;background:#d9edf9;font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:inherit}.app-shell{width:min(100%,480px);height:100dvh;min-height:600px;margin:auto;background:#f4f9fc;box-shadow:0 15px 60px #24516d35;position:relative;display:flex;flex-direction:column;overflow:hidden}.topbar{background:linear-gradient(145deg,#54bde9,#238ac9);color:white;padding:18px 20px 19px;border-radius:0 0 26px 26px;box-shadow:0 9px 28px #2996cc39;z-index:2}.topbar-inner,.brand,.topbar-bottom,.section-heading,.card-bottom,.sheet-header,.offer-top{display:flex;align-items:center;justify-content:space-between}.brand{gap:10px;justify-content:flex-start}.brand-icon{width:38px;height:38px;display:grid;place-items:center;border-radius:13px;background:#ff931e;font-weight:800;font-size:23px;box-shadow:0 3px 0 #e87509}.brand strong{display:block;font-weight:800;font-size:18px;line-height:1.2;letter-spacing:-.5px}.brand span{display:block;color:#e8f8ff;font-size:9px;line-height:1.5;font-weight:600}.avatar{width:32px;height:32px;border:1px solid #ffffff88;background:#ffffff2b;border-radius:50%;color:#fff;font-weight:800}.topbar-bottom{margin-top:18px}.topbar-bottom small{font-size:10px;color:#d9f3ff;font-weight:600}.topbar-bottom h1{margin:2px 0 0;font-size:20px;line-height:1.35;letter-spacing:-.6px}.sparkle{font-size:34px;color:#ffe1a9}main{overflow-y:auto;flex:1;padding-bottom:102px}.demo-banner{font-size:10px;text-align:center;background:#e6f5fc;color:#4381a2;font-weight:700;padding:8px 12px}.error-banner{padding:10px;background:#fff1ef;color:#b84130;font-size:11px}.hero{margin:15px 15px 22px;border-radius:23px;min-height:197px;background:linear-gradient(125deg,#fff1dc,#fff8ec 68%,#ffdeab);position:relative;overflow:hidden;display:flex;box-shadow:0 6px 20px #ae784018}.hero-copy{padding:18px 0 18px 19px;position:relative;z-index:1;max-width:67%}.eyebrow{font-size:8px;font-weight:800;letter-spacing:1.4px;color:#d77810}.eyebrow.dark{color:#f18c1b}.hero h2{font-size:20px;line-height:1.35;margin:8px 0 4px;letter-spacing:-.7px}.hero h2 em{font-style:normal;color:#f18c1b}.hero p{color:#617384;font-size:10px;line-height:1.65;margin:0 0 10px}.hero-button,.empty button{border:0;border-radius:10px;background:#ff921f;color:#fff;font-weight:800;font-size:10px;padding:9px 12px;box-shadow:0 3px 0 #db7511}.hero-art{flex:1;position:relative}.art-circle{position:absolute;right:-23px;top:21px;width:134px;height:134px;border-radius:50%;background:linear-gradient(145deg,#80d7f1,#209bd3);border:10px solid #fff8ec;color:white;display:grid;place-items:center;font-weight:800;font-size:77px;transform:rotate(-16deg);box-shadow:0 14px 18px #28749b2e}.art-tag{position:absolute;background:white;border-radius:99px;padding:5px 9px;font-size:8px;font-weight:800;white-space:nowrap;box-shadow:0 5px 14px #95571930}.tag-one{top:11px;right:18px;color:#ed8a18}.tag-two{bottom:26px;right:55px;color:#168dc4}.content-section{padding:0 15px 20px}.section-heading{margin:0 2px 13px}.section-heading h2{font-size:18px;margin:2px 0 0;letter-spacing:-.5px}.count{font-size:10px;color:#7590a2;background:white;border:1px solid #dfeaf0;border-radius:20px;padding:5px 9px;font-weight:700}.search-box{height:44px;border:1px solid #dceaf2;display:flex;align-items:center;gap:10px;border-radius:13px;background:#fff;box-shadow:0 4px 12px #2b719011;margin-bottom:16px;padding:0 12px}.search-box span{font-size:27px;color:#46a8d5;line-height:1}.search-box input{min-width:0;flex:1;border:0;outline:0;font-size:11px;color:#294357}.search-box input::placeholder{color:#a6b5bf}.search-box kbd{font:700 9px 'Noto Sans Thai';color:#a5bac4}.product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.product-card{padding:0;border:1px solid #e3edf2;border-radius:17px;background:white;text-align:left;overflow:hidden;box-shadow:0 5px 15px #276a8a10;min-width:0;transition:transform .15s,box-shadow .15s}.product-card:active{transform:scale(.98)}.card-image,.detail-image{position:relative;background:#e7f4fa;overflow:hidden}.card-image{height:126px}.card-image img,.detail-image img,#photo-preview img{width:100%;height:100%;object-fit:cover}.placeholder-art{width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;background:radial-gradient(circle at 35% 25%,#fff,#e0f3fb 72%);color:#86bfd9}.placeholder-art span{font-size:45px;line-height:1}.placeholder-art small{font-size:9px;font-weight:800;letter-spacing:1px}.best-badge{position:absolute;top:8px;left:8px;background:#ff971f;color:white;border-radius:7px;padding:3px 6px;font-size:8px;font-weight:800}.card-body{padding:10px 11px 11px}.card-brand{font-size:9px;color:#35a2d2;font-weight:800;margin-bottom:2px}.card-body h3{font-size:11px;line-height:1.45;min-height:32px;margin:0 0 5px;color:#233a4a}.card-price{display:flex;align-items:baseline;gap:5px}.card-price strong{font-size:18px;color:#f18716;line-height:1}.card-price span{font-size:8px;color:#9aabb5}.card-unit{font-size:9px;color:#66859a;margin:4px 0 8px}.card-bottom{border-top:1px solid #edf2f5;padding-top:7px;font-size:9px;color:#8399a8}.arrow{font-size:14px;color:#46a9d9}.empty{background:white;border:1px dashed #b8d8e8;border-radius:18px;padding:38px 20px;text-align:center}.empty-icon{font-size:45px;color:#9bcfe8}.empty h3{margin:2px 0;font-size:15px}.empty p{margin:0 0 14px;color:#849aaa;font-size:11px}.notice{padding:32px;text-align:center;color:#7a9eb2;font-size:12px}.detail{padding:16px}.back{border:0;background:none;color:#399dc9;font-size:11px;font-weight:800;padding:4px 0 14px}.detail-product{display:flex;gap:15px;align-items:center;background:white;border-radius:17px;padding:12px;border:1px solid #e3ecf1}.detail-image{width:104px;height:104px;flex:none;border-radius:12px}.detail-title{min-width:0}.detail-title h2{font-size:17px;line-height:1.4;margin:3px 0}.detail-title p{font-size:10px;color:#8fa2ae;margin:0}.comparison-head{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(130deg,#58bce8,#2b9cd3);color:white;border-radius:16px;margin:15px 0 20px;padding:17px 20px}.comparison-head span{display:block;font-size:10px;opacity:.86}.comparison-head strong{font-size:24px}.comparison-head small{font-size:11px}.medal{border-radius:50%;background:#ffb341;width:46px;height:46px;display:grid;place-items:center;color:white;font-size:23px}.section-heading.compact{margin-bottom:10px}.offer-list{display:grid;gap:10px}.offer{display:flex;gap:10px;align-items:flex-start;background:white;border:1px solid #e3edf2;border-radius:14px;padding:13px 10px}.offer.winner{border:2px solid #ffbb65;background:#fffdf8}.offer-rank{width:25px;height:25px;flex:none;border-radius:50%;display:grid;place-items:center;background:#eef6fa;color:#6195ac;font-weight:800;font-size:11px}.winner .offer-rank{background:#ff9b24;color:white}.offer-main{flex:1;min-width:0}.offer-top{justify-content:flex-start;gap:6px}.offer-top strong{font-size:12px}.winner-label{color:#f18a19;background:#fff0d6;border-radius:20px;padding:2px 5px;font-size:8px;font-weight:800}.offer-main p{font-size:9px;color:#8198a6;margin:3px 0}.offer-main small{font-size:9px;color:#748b9b}.shop-link{display:block;margin-top:6px;width:max-content;color:#258ec0;font-weight:800;text-decoration:none;font-size:9px}.offer-price{text-align:right;white-space:nowrap}.offer-price strong{display:block;color:#f18a19;font-size:17px}.offer-price small{color:#819cac;font-size:9px}.detail-note{color:#91a4ae;font-size:9px;line-height:1.6;padding:16px 3px}.bottom-nav{position:absolute;bottom:0;left:0;right:0;height:70px;padding-bottom:env(safe-area-inset-bottom);background:#fff;border-top:1px solid #e2edf2;display:flex;justify-content:space-around;align-items:center;box-shadow:0 -5px 15px #28799a12;z-index:4}.bottom-nav button{border:0;background:none;color:#91a4b2;font-size:9px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:61px}.bottom-nav button span{font-size:23px;line-height:1}.bottom-nav button.active{color:#2a9dce}.bottom-nav .add-nav span{display:grid;place-items:center;width:39px;height:39px;border-radius:13px;background:#ff941e;color:white;font-size:26px;margin-top:-22px;box-shadow:0 5px 12px #fa941f50}.bottom-nav .add-nav{color:#ed8720}.modal-wrap{position:absolute;inset:0;z-index:8;display:flex;align-items:flex-end}.modal-scrim{position:absolute;inset:0;background:#1637479c}.sheet{position:relative;background:#fff;width:100%;max-height:94%;overflow-y:auto;border-radius:24px 24px 0 0;padding:0 20px 25px;box-shadow:0 -12px 40px #0d31404a}.sheet-handle{width:38px;height:4px;background:#d4e4ec;border-radius:10px;margin:10px auto 15px}.sheet-header h2{font-size:20px;margin:1px 0}.close{border:0;background:#f1f6f9;border-radius:50%;height:31px;width:31px;font-size:21px;color:#688aa0}.sheet-intro{font-size:10px;color:#8ba1af;margin:0 0 13px}.photo-upload{display:block;height:125px;border:2px dashed #afd6e8;border-radius:14px;background:#f1faff;margin:0 0 16px;cursor:pointer;overflow:hidden}.photo-upload #photo-preview{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#68b1d1}.photo-upload span{font-size:30px;line-height:1}.photo-upload strong{font-size:11px}.photo-upload small{font-size:9px;color:#a2b7c4}.sheet form>label,.form-row>label{display:block;color:#496173;font-size:10px;font-weight:800;margin-bottom:12px}.sheet label b{color:#ed891d}.sheet input:not([type=file]),.sheet select,.sheet textarea{display:block;border:1px solid #dbe8ef;background:#f8fbfd;border-radius:9px;outline:0;color:#213f50;padding:10px 11px;font-size:11px;width:100%;margin-top:5px;resize:vertical}.sheet input:focus,.sheet select:focus,.sheet textarea:focus{border-color:#53b7e3;box-shadow:0 0 0 3px #53b7e31c}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.quantity{display:flex;gap:5px}.quantity input{min-width:0}.quantity select{width:68px}.form-hint{font-size:9px;color:#839eac;background:#eff8fc;border-radius:9px;padding:8px;margin:4px 0 12px}.submit{width:100%;border:0;border-radius:11px;background:#ff941e;color:white;padding:12px;font-size:12px;font-weight:800;box-shadow:0 4px 0 #df7811}.submit:disabled{opacity:.6}#toast{position:absolute;left:50%;bottom:83px;transform:translateX(-50%) translateY(10px);background:#1f4355;color:white;border-radius:10px;padding:9px 12px;white-space:nowrap;font-size:10px;opacity:0;pointer-events:none;transition:.2s;z-index:10}#toast.visible{opacity:1;transform:translateX(-50%) translateY(0)}@media(min-width:481px){.app-shell{margin:18px auto;height:calc(100dvh - 36px);border-radius:25px}.topbar{border-radius:25px 25px 26px 26px}}@media(max-width:350px){.hero-art{display:none}.hero-copy{max-width:100%}.product-grid{gap:8px}.card-body{padding:8px}}
+:root{background:#202b35}.app-shell{width:min(100%,448px);background:#f3f5f6}.topbar{background:#3eafe0;padding:16px 16px 18px;border-radius:0 0 18px 18px;box-shadow:0 4px 12px #269dcc32}.topbar-inner{margin:0}.brand{gap:8px}.brand strong{font-size:23px;letter-spacing:-.8px}.brand-zap{font-size:25px;color:#fff}.header-profile{display:flex;align-items:center;gap:5px;border:0;background:#1479a447;color:white;border-radius:99px;padding:5px 10px;font-size:10px;font-weight:700}.header-profile span{font-size:16px}.topbar-caption{font-size:10px;color:#e6f7ff;margin-top:11px;font-weight:600}.demo-banner{text-align:left;padding:7px 14px;background:#eaf6fc;border-bottom:1px solid #d5eaf5}.content-section{padding:0 12px 22px}.feed-controls{display:flex;gap:7px;margin:12px 0 12px;padding-left:2px}.chip{border:1px solid #d3dde3;background:white;color:#5b7080;border-radius:99px;padding:6px 13px;font-size:10px;font-weight:800;box-shadow:0 1px 3px #223e4d0a}.chip.selected{background:#ff941e;border-color:#ee8612;color:#fff}.search-view{padding:0 0 22px}.search-panel{padding:15px 15px 10px;background:#fff;border-bottom:1px solid #dfe7eb;margin-bottom:16px}.search-panel .search-box{margin:0;background:#f3f6f8;box-shadow:none}.search-hint{font-size:9px;color:#9aaab3;padding:8px 1px 0}.search-view .section-heading,.search-view .product-grid,.search-view .empty{margin-left:12px;margin-right:12px}.product-grid{gap:12px}.product-card{border-radius:8px;border-color:#e0e5e8;box-shadow:0 1px 4px #162f3b12}.card-image{height:auto;aspect-ratio:1;background:#e8e9e9}.best-badge{top:5px;left:5px;border-radius:4px;font-size:8px;padding:2px 5px;background:#ff921f}.unit-overlay{position:absolute;bottom:0;right:0;background:#fffffff0;color:#f08a1b;border-radius:7px 0 0 0;padding:3px 5px;font-weight:800;font-size:9px;box-shadow:0 1px 3px #31434b18}.card-body{padding:8px;min-height:79px;display:flex;flex-direction:column}.card-body h3{font-size:11px;min-height:29px;line-height:1.3;margin:0 0 3px}.card-price strong{font-size:12px;color:#35424b}.card-bottom{margin-top:auto;padding-top:6px}.card-bottom .arrow{display:none}.bottom-nav{height:67px;align-items:flex-start;padding-top:9px}.bottom-nav button{font-size:10px;gap:2px}.bottom-nav button span{font-size:21px}.bottom-nav .add-nav span{display:block;width:auto;height:auto;margin:0;border-radius:0;background:none;box-shadow:none;font-size:22px;line-height:1;color:inherit}.bottom-nav .add-nav{color:#f08b18}.floating-add{position:absolute;right:22px;bottom:83px;width:53px;height:53px;border-radius:50%;border:2px solid white;background:linear-gradient(145deg,#ffad42,#f48710);color:white;font-size:28px;box-shadow:0 7px 17px #e4862a72;z-index:5}.sheet{border-radius:20px 20px 0 0;max-height:calc(100% - 72px)}.sheet-header h2{font-size:18px}.sheet-intro{font-size:10px}@media(min-width:481px){.app-shell{margin:0 auto;height:100dvh;border-radius:0}.topbar{border-radius:0 0 18px 18px}}
+.text-card{min-height:178px}.text-card .card-body{height:100%;min-height:178px;padding:11px;gap:0}.card-topline{display:flex;justify-content:space-between;align-items:center;gap:4px;margin-bottom:7px}.brand-label{font-size:9px;color:#2e9bca;font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.best-label{font-size:8px;font-weight:800;color:#f18a19;background:#fff0da;border-radius:4px;padding:2px 5px;white-space:nowrap}.text-card h3{font-size:12px;min-height:34px;line-height:1.45;margin:0 0 3px}.card-store{font-size:9px;color:#7d929e;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.text-card .card-price{display:flex;flex-direction:column;gap:0;margin-top:10px}.text-card .card-price small{font-size:9px;color:#a0acb5}.text-card .card-price strong{color:#f18a19;font-size:20px;line-height:1.2}.text-card .card-unit{margin:2px 0 5px;color:#2c91be;font-size:9px;font-weight:700}.text-card .card-bottom{font-size:9px}.text-card .card-bottom .arrow{display:block;color:#f18a19;font-size:18px;line-height:0}
+.store-input-wrap{display:flex;align-items:center;gap:8px;margin-top:5px;border:1px solid #cbe5f2;background:#f2faff;border-radius:11px;padding:0 10px;transition:border-color .15s,box-shadow .15s}.store-input-wrap:focus-within{border-color:#4aaede;box-shadow:0 0 0 3px #53b7e31c}.store-icon{font-size:20px;color:#3aa4d0;line-height:1}.sheet .store-input-wrap input{border:0;background:transparent;margin:0;padding:11px 0;box-shadow:none;min-width:0;font-weight:700}.store-options{margin:-3px 0 16px}.store-options-label{display:block;font-size:9px;font-weight:800;color:#7897a9;margin-bottom:7px}.store-chips{display:flex;flex-wrap:wrap;gap:7px}.store-chip{border:1px solid #cfe3ed;background:#fff;color:#587184;border-radius:8px;padding:6px 9px;font-size:10px;font-weight:800;line-height:1.2}.store-chip.selected{background:#eaf7ff;border-color:#49afe0;color:#168dc5}.store-options small{display:block;margin-top:7px;font-size:9px;color:#98aebc}
+.advanced-details{border:1px solid #d7eaf4;border-radius:12px;background:#f5fbff;margin:4px 0 14px;overflow:hidden}.advanced-details summary{list-style:none;display:flex;align-items:center;gap:9px;padding:11px 12px;cursor:pointer;color:#248fbf}.advanced-details summary::-webkit-details-marker{display:none}.advanced-icon{display:grid;place-items:center;width:24px;height:24px;border-radius:7px;background:#def3fe;color:#219bcc;font-size:19px;line-height:1}.advanced-details summary strong{display:block;font-size:11px}.advanced-details summary small{display:block;color:#8ca7b7;font-size:9px;font-weight:600}.advanced-arrow{margin-left:auto;color:#7ba7bc;font-size:18px}.advanced-details[open] .advanced-arrow{transform:rotate(180deg)}.advanced-fields{padding:2px 12px 12px;border-top:1px solid #dcecf5;background:#fff}.advanced-fields>label{display:block;color:#496173;font-size:10px;font-weight:800;margin-top:11px}.advanced-fields .quantity{margin-top:5px}.advanced-fields .quantity input,.advanced-fields .quantity select{margin-top:0}
+.search-view{background:#f3f6f8}.search-panel{padding:19px 16px 15px;background:linear-gradient(145deg,#e9f8ff,#fff 72%);border-bottom:1px solid #dbeef7;border-radius:0 0 20px 20px;box-shadow:0 6px 18px #2d7eaa12}.search-title{display:flex;flex-direction:column;margin-bottom:13px}.search-title span{font-size:9px;color:#359bc7;font-weight:800;letter-spacing:.4px}.search-title strong{font-size:18px;color:#193e55;line-height:1.35}.search-title small{font-size:10px;color:#7898a9}.search-panel .search-box{height:47px;margin:0;background:#fff;border:1px solid #b9def0;border-radius:13px;box-shadow:0 3px 12px #438fb018;padding:0 11px}.search-glyph{color:#37a3d1;font-size:27px}.search-box input{font-size:11px;font-weight:600}.search-shortcut{font-size:9px;font-weight:800;color:#5faac9;background:#edf8fd;border-radius:7px;padding:4px 7px}.search-clear{border:0;background:#edf5f9;color:#789bac;width:23px;height:23px;border-radius:50%;font-size:17px;line-height:1}.search-suggestions{margin-top:11px}.search-suggestions>span{font-size:9px;color:#8ea7b6;font-weight:800}.search-suggestions>div{display:flex;gap:6px;overflow-x:auto;padding:6px 0 2px;scrollbar-width:none}.search-suggestions>div::-webkit-scrollbar{display:none}.search-suggestions button{flex:none;max-width:145px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border:1px solid #d7e8f1;background:#fff;color:#4b839c;border-radius:99px;padding:5px 9px;font-size:9px;font-weight:800}.search-suggestions button:active{background:#ffefd9;border-color:#ffb861;color:#d47616}.search-results-heading{padding:13px 0 0;margin-bottom:11px}.search-results-heading>div>span{font-size:9px;color:#f29026;font-weight:800}.search-results-heading h2{font-size:15px;margin:1px 0}.search-results-heading .count{background:#e8f6fd;border-color:#cce7f3;color:#328fb7}
+.text-card .card-topline{justify-content:flex-end;margin-bottom:5px}.text-card h3{min-height:0;margin-bottom:1px;font-size:12px;line-height:1.4}.card-brand-secondary{font-size:9px;color:#329ac7;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:5px}.text-card .card-store{margin-top:2px}
+
+/* Emphasize only the currency value in the add-offer form. */
+.sheet input[name="price"]{font-size:20px}
+
+/* Private profile */
+.profile-view{padding:18px 16px 28px}.profile-hero{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#fff5e7,#fff);border:1px solid #ffe1b4;border-radius:18px;padding:18px}.profile-avatar{width:56px;height:56px;flex:none;display:grid;place-items:center;border-radius:50%;background:#ffac45;color:#fff;font-size:30px;box-shadow:0 4px 12px #dd883655}.profile-hero h2{font-size:18px;margin:1px 0;line-height:1.35}.profile-hero p{font-size:11px;color:#738b9a;margin:0}.profile-status{display:flex;align-items:center;gap:8px;color:#537b92;font-size:11px;font-weight:700;margin:15px 2px}.status-dot{width:9px;height:9px;border-radius:50%;background:#f5ab43}.status-dot.online{background:#39b88a}.profile-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.profile-stats>div{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:85px;background:#fff;border:1px solid #e0edf3;border-radius:14px}.profile-stats strong{font-size:20px;color:#ee8a20}.profile-stats span{font-size:10px;font-weight:700;color:#708b9b;text-align:center}.profile-section{margin-top:25px}.profile-section-title{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px}.profile-section-title h3{margin:0;font-size:16px}.profile-section-title span{font-size:10px;color:#7f98a8}.profile-recent{overflow:hidden;border:1px solid #e1ecf1;border-radius:14px;background:#fff}.profile-recent button{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;padding:12px 14px;text-align:left;border:0;border-bottom:1px solid #edf2f4;background:#fff}.profile-recent button:last-child{border-bottom:0}.profile-recent button span{min-width:0}.profile-recent strong{display:block;font-size:12px;line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.profile-recent small{display:block;font-size:10px;color:#7e97a6}.profile-recent b{flex:none;font-size:14px;color:#ed8b22}.profile-empty{text-align:center;padding:24px;background:#fff;border:1px dashed #bcd9e6;border-radius:14px;font-size:11px;color:#7590a0}.profile-empty button{border:0;border-radius:9px;background:#ff971f;color:white;font-weight:800;padding:8px 12px;margin-top:10px}.profile-privacy{margin-top:20px;padding:16px;background:#eaf6fc;border-radius:14px;color:#42758d}.profile-privacy strong{font-size:12px}.profile-privacy p{font-size:10px;line-height:1.6;margin:4px 0 0}
+
+.search-box .search-shortcut{font-size:10px}
+
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+const root = document.querySelector('#app');
+const demoOffers = [
+  { id: 'demo-1', name: 'นมสด UHT รสจืด', brand: 'Dutch Mill', productKey: 'dutch mill นมสด uht รสจืด', store: 'โลตัส', location: 'ทุกสาขา', purchaseUrl: 'https://www.lotuss.com/', price: 89, quantity: 1000, unit: 'ml', imageUrl: '', notes: 'แพ็ค 4 กล่อง', createdAt: Date.now() - 7200000 },
+  { id: 'demo-2', name: 'นมสด UHT รสจืด', brand: 'Dutch Mill', productKey: 'dutch mill นมสด uht รสจืด', store: 'บิ๊กซี', location: 'สาขาใกล้บ้าน', purchaseUrl: 'https://www.bigc.co.th/', price: 95, quantity: 1000, unit: 'ml', imageUrl: '', notes: '', createdAt: Date.now() - 86400000 },
+  { id: 'demo-3', name: 'กระดาษทิชชู่ 3 ชั้น', brand: 'Scott', productKey: 'scott กระดาษทิชชู่ 3 ชั้น', store: 'แม็คโคร', location: 'ออนไลน์', purchaseUrl: 'https://www.makro.pro/', price: 129, quantity: 24, unit: 'piece', imageUrl: '', notes: '24 ม้วน', createdAt: Date.now() - 172800000 },
+  { id: 'demo-4', name: 'กระดาษทิชชู่ 3 ชั้น', brand: 'Scott', productKey: 'scott กระดาษทิชชู่ 3 ชั้น', store: 'บิ๊กซี', location: 'ทุกสาขา', purchaseUrl: 'https://www.bigc.co.th/', price: 139, quantity: 24, unit: 'piece', imageUrl: '', notes: '', createdAt: Date.now() - 259200000 },
+  { id: 'demo-5', name: 'น้ำยาล้างจาน', brand: 'Sunlight', productKey: 'sunlight น้ำยาล้างจาน', store: 'โลตัส', location: 'ออนไลน์', purchaseUrl: 'https://www.lotuss.com/', price: 52, quantity: 750, unit: 'ml', imageUrl: '', notes: 'ขวด 750 มล.', createdAt: Date.now() - 432000000 }
+];
+
+const state = { offers: [], query: '', view: 'feed', selectedKey: null, modal: false, loading: true, error: '', busy: false, image: null, imagePreview: '', showUnitPrice: true, mode: 'connecting' };
+const firebaseConfig = {
+  apiKey: 'AIzaSyCZugoVgcRQkI0YjoCbIvsktIq9ElcWHog',
+  authDomain: 'saveprice-9c5ab.firebaseapp.com',
+  projectId: 'saveprice-9c5ab',
+  storageBucket: 'saveprice-9c5ab.firebasestorage.app',
+  messagingSenderId: '117954177360',
+  appId: '1:117954177360:web:c21333cd9859b9dcbe2455'
+};
+let cloud = null;
+
+const esc = (value) => String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const money = (value) => new Intl.NumberFormat('th-TH', { maximumFractionDigits: 2 }).format(Number(value) || 0);
+const dateText = (value) => new Intl.DateTimeFormat('th-TH', { day: 'numeric', month: 'short', year: 'numeric' }).format(value || Date.now());
+const normalize = (value) => String(value || '').trim().toLocaleLowerCase('th').replace(/\s+/g, ' ');
+const keyFor = (name, brand) => normalize(`${brand} ${name}`);
+const units = { piece: { label: 'ชิ้น', base: 'ชิ้น', factor: 1 }, g: { label: 'กรัม', base: 'กรัม', factor: 1 }, kg: { label: 'กิโลกรัม', base: 'กรัม', factor: 1000 }, ml: { label: 'มล.', base: 'มล.', factor: 1 }, l: { label: 'ลิตร', base: 'มล.', factor: 1000 } };
+const unitPrice = (offer) => Number(offer.price) / (Number(offer.quantity) * (units[offer.unit]?.factor || 1));
+const unitLabel = (offer) => units[offer.unit]?.base || 'ชิ้น';
+const compatible = (a, b) => unitLabel(a) === unitLabel(b);
+const safeUrl = (value) => { try { const url = new URL(value); return ['https:', 'http:'].includes(url.protocol) ? url.href : ''; } catch { return ''; } };
+const image = (offer) => offer.imageUrl ? `<img src="${esc(offer.imageUrl)}" alt="${esc(offer.name)}" loading="lazy">` : `<div class="placeholder-art"><span>🛒</span><small>SavePrice</small></div>`;
+const localKey = 'saveprice-community-demo-v1';
+
+function readLocal() {
+  try { return JSON.parse(localStorage.getItem(localKey) || 'null') || demoOffers; }
+  catch { return demoOffers; }
+}
+function writeLocal(offers) { localStorage.setItem(localKey, JSON.stringify(offers)); }
+function localSavedOffers() { return readLocal().filter(offer => String(offer.id || '').startsWith('local-')); }
+function storeChoices() {
+  const names = [...state.offers.map(offer => offer.store), '7-11', "Lotus's", 'Makro', 'Shopee', 'Lazada', 'บิ๊กซี', 'Watsons'];
+  return [...new Map(names.filter(Boolean).map(name => [normalize(name), String(name).trim()])).values()].slice(0, 10);
+}
+
+async function connectFirebase() {
+  try {
+    const [{ initializeApp }, authSdk, dbSdk] = await Promise.all([
+      import('https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js'),
+      import('https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js'),
+      import('https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js')
+    ]);
+    const app = initializeApp(firebaseConfig);
+    const auth = authSdk.getAuth(app);
+    const db = dbSdk.getFirestore(app);
+    let user = await new Promise((resolve, reject) => {
+      let stop = () => {};
+      stop = authSdk.onAuthStateChanged(auth, value => { stop(); resolve(value); }, reject);
+    });
+    if (!user) user = (await authSdk.signInAnonymously(auth)).user;
+    cloud = { dbSdk, db, uid: user.uid };
+    const offersRef = dbSdk.collection(db, 'users', user.uid, 'offers');
+    dbSdk.onSnapshot(offersRef, snapshot => {
+      state.offers = [...snapshot.docs.map(item => ({ id: item.id, ...item.data() })), ...localSavedOffers()]
+        .sort((a, b) => b.createdAt - a.createdAt);
+      state.mode = 'online'; state.error = ''; state.loading = false; render();
+    }, error => {
+      state.mode = 'local'; state.offers = readLocal(); state.error = `เชื่อมข้อมูลส่วนตัวไม่ได้: ${error.message}`; state.loading = false; render();
+    });
+  } catch (error) {
+    state.mode = 'local'; state.offers = readLocal(); state.error = `เชื่อม Firebase ไม่ได้: ${error.message}`; state.loading = false; render();
+  }
+}
+
+function groups() {
+  const map = new Map();
+  for (const offer of state.offers) {
+    const key = offer.productKey || keyFor(offer.name, offer.brand);
+    if (!map.has(key)) map.set(key, []);
+    map.get(key).push(offer);
+  }
+  return [...map.entries()].map(([key, offers]) => {
+    const comparable = offers.filter(item => compatible(item, offers[0]));
+    const best = [...comparable].sort((a, b) => unitPrice(a) - unitPrice(b))[0] || offers[0];
+    return { key, offers, best, newest: Math.max(...offers.map(x => x.createdAt || 0)) };
+  }).sort((a, b) => b.newest - a.newest);
+}
+
+function topbar() { return `<header class="topbar"><div class="topbar-inner"><div class="brand"><span class="brand-zap">✦</span><strong>SavePrice</strong></div><button class="header-profile" data-action="profile"><span>◉</span> โปรไฟล์</button></div><div class="topbar-caption">เก็บราคาไว้เทียบความคุ้ม · เริ่มที่สินค้าที่คุณเจอ</div></header>`; }
+function searchBox() { return `<div class="search-box"><span class="search-glyph">⌕</span><input id="search" type="search" placeholder="ชื่อสินค้า แบรนด์ หรือร้านค้า" value="${esc(state.query)}" autocomplete="off">${state.query ? '<button type="button" class="search-clear" data-action="clear-search" aria-label="ล้างคำค้น">×</button>' : '<span class="search-shortcut">ค้นหา</span>'}</div>`; }
+function card(group) {
+  const { best, offers, key } = group;
+  return `<button class="product-card text-card" data-action="detail" data-key="${esc(key)}"><div class="card-body"><div class="card-topline"><span class="best-label">คุ้มสุด</span></div><h3>${esc(best.name)}</h3>${best.brand ? `<div class="card-brand-secondary">${esc(best.brand)}</div>` : ''}<div class="card-store">⌂ ${esc(best.store)}</div><div class="card-price"><small>เริ่มต้น</small><strong>฿${money(best.price)}</strong></div>${state.showUnitPrice ? `<div class="card-unit">฿${money(unitPrice(best))} / ${unitLabel(best)}</div>` : ''}<div class="card-bottom"><span>${offers.length} ราคาให้เทียบ</span><span class="arrow">›</span></div></div></button>`;
+}
+function feed() {
+  const all = groups();
+  const filtered = all.filter(g => `${g.best.name} ${g.best.brand} ${g.offers.map(o => o.store).join(' ')}`.toLocaleLowerCase('th').includes(state.query.toLocaleLowerCase('th')));
+  const suggestions = !state.query ? all.slice(0, 4).map(group => group.best.name) : [];
+  const controls = state.view === 'feed' ? `<div class="feed-controls"><button class="chip ${state.showUnitPrice ? 'selected' : ''}" data-action="unit-toggle">฿/หน่วย ${state.showUnitPrice ? '✓' : ''}</button><button class="chip" data-action="search">⌕ ค้นหาสินค้า</button></div>` : `<div class="search-panel"><div class="search-title"><span>ค้นหาและเปรียบเทียบ</span><strong>หาของที่คุ้มกว่า</strong><small>ดูราคาเริ่มต้นและร้านที่ถูกสุดในที่เดียว</small></div>${searchBox()}${suggestions.length ? `<div class="search-suggestions"><span>ลองค้นหา</span><div>${suggestions.map(name => `<button type="button" data-action="quick-search" data-query="${esc(name)}">${esc(name)}</button>`).join('')}</div></div>` : ''}</div>`;
+  return `<section class="content-section ${state.view === 'search' ? 'search-view' : 'feed-view'}">${controls}${state.view === 'search' ? `<div class="section-heading search-results-heading"><div><span>รายการสินค้า</span><h2>${state.query ? 'ผลการค้นหา' : 'ราคาที่บันทึกไว้'}</h2></div><span class="count">${filtered.length} สินค้า</span></div>` : ''}${state.loading ? `<div class="notice">กำลังโหลดราคา…</div>` : filtered.length ? `<div class="product-grid">${filtered.map(card).join('')}</div>` : `<div class="empty"><div class="empty-icon">⌕</div><h3>${state.query ? 'ยังไม่พบสินค้าที่ค้นหา' : 'ยังไม่มีราคาสินค้า'}</h3><p>${state.query ? 'ลองค้นหาด้วยชื่อหรือแบรนด์อื่น' : 'เริ่มบันทึกราคาสินค้าแรกของคุณ'}</p><button data-action="open-form">＋ เพิ่มราคาสินค้า</button></div>`}</section>`;
+}
+function detail() {
+  const group = groups().find(g => g.key === state.selectedKey);
+  if (!group) return feed();
+  const sorted = [...group.offers].sort((a, b) => compatible(a, group.best) && compatible(b, group.best) ? unitPrice(a) - unitPrice(b) : Number(a.price) - Number(b.price));
+  const best = sorted[0];
+  return `<section class="detail"><button class="back" data-action="back">← กลับไปดูสินค้า</button><div class="detail-product"><div class="detail-image">${image(group.best)}</div><div class="detail-title"><span class="eyebrow dark">${esc(group.best.brand || 'สินค้า')}</span><h2>${esc(group.best.name)}</h2><p>เปรียบเทียบจาก ${group.offers.length} ราคาที่บันทึก</p></div></div><div class="comparison-head"><div><span>ราคาต่อหน่วยที่ดีที่สุด</span><strong>฿${money(unitPrice(best))} <small>/ ${unitLabel(best)}</small></strong></div><div class="medal">★</div></div><div class="section-heading compact"><div><span class="eyebrow dark">COMPARE OFFERS</span><h2>ราคาแต่ละร้าน</h2></div></div><div class="offer-list">${sorted.map((offer, i) => `<article class="offer ${i === 0 ? 'winner' : ''}"><div class="offer-rank">${i === 0 ? '★' : i + 1}</div><div class="offer-main"><div class="offer-top"><strong>${esc(offer.store)}</strong>${i === 0 ? '<span class="winner-label">คุ้มสุด</span>' : ''}</div><p>${esc(offer.location || 'ไม่ระบุสาขา')} · ${dateText(offer.createdAt)}${String(offer.id || '').startsWith('local-') ? ' · ในเครื่อง' : ''}</p><small>${money(offer.quantity)} ${units[offer.unit]?.label || 'ชิ้น'}${offer.notes ? ` · ${esc(offer.notes)}` : ''}</small>${safeUrl(offer.purchaseUrl) ? `<a href="${esc(safeUrl(offer.purchaseUrl))}" target="_blank" rel="noopener noreferrer" class="shop-link">ไปที่ร้าน ↗</a>` : ''}</div><div class="offer-price"><strong>฿${money(offer.price)}</strong><small>฿${money(unitPrice(offer))} / ${unitLabel(offer)}</small></div></article>`).join('')}</div><div class="detail-note">ราคาที่บันทึกอาจเปลี่ยนตามสาขาและเวลา โปรดตรวจสอบกับร้านก่อนซื้อ</div></section>`;
+}
+function profile() {
+  const saved = state.offers.filter(offer => !String(offer.id || '').startsWith('demo-'));
+  const products = new Set(saved.map(offer => offer.productKey || keyFor(offer.name, offer.brand))).size;
+  const localCount = saved.filter(offer => String(offer.id || '').startsWith('local-')).length;
+  const status = state.mode === 'online' ? 'เชื่อม Firebase แล้ว' : state.mode === 'connecting' ? 'กำลังเชื่อม Firebase' : 'เก็บในเบราว์เซอร์นี้';
+  return `<section class="profile-view"><div class="profile-hero"><div class="profile-avatar">◉</div><div><span class="eyebrow dark">MY SAVEPRICE</span><h2>โปรไฟล์ของฉัน</h2><p>พื้นที่บันทึกราคาส่วนตัว</p></div></div><div class="profile-status"><span class="status-dot ${state.mode === 'online' ? 'online' : ''}"></span><span>${status}</span></div><div class="profile-stats"><div><strong>${saved.length}</strong><span>ราคาที่บันทึก</span></div><div><strong>${products}</strong><span>สินค้า</span></div><div><strong>${localCount}</strong><span>ในเครื่อง</span></div></div><div class="profile-section"><div class="profile-section-title"><h3>บันทึกล่าสุด</h3><span>${saved.length} รายการ</span></div>${saved.length ? `<div class="profile-recent">${saved.slice(0, 5).map(offer => `<button data-action="detail" data-key="${esc(offer.productKey || keyFor(offer.name, offer.brand))}"><span><strong>${esc(offer.name)}</strong><small>${esc(offer.brand || offer.store)} · ${dateText(offer.createdAt)}</small></span><b>฿${money(offer.price)}</b></button>`).join('')}</div>` : `<div class="profile-empty">ยังไม่มีราคาที่บันทึกเอง<br><button data-action="open-form">＋ บันทึกราคาแรก</button></div>`}</div><div class="profile-privacy"><strong>ข้อมูลของคุณ</strong><p>รายการใน Firebase ผูกกับบัญชีทดลองของเบราว์เซอร์นี้และไม่แชร์สาธารณะ${localCount ? ` · ${localCount} รายการยังเก็บอยู่ในเครื่อง` : ''}</p></div></section>`;
+}
+function form() {
+  return `<div class="modal-wrap" role="presentation"><div class="modal-scrim" data-action="close-form"></div>
+    <section class="sheet" role="dialog" aria-modal="true" aria-label="บันทึกราคาสินค้า">
+      <div class="sheet-handle"></div>
+      <div class="sheet-header"><div><span class="eyebrow dark">SAVE A PRICE</span><h2>บันทึกราคาที่เจอ</h2></div><button class="close" data-action="close-form" aria-label="ปิด">×</button></div>
+      <p class="sheet-intro">เก็บภาพสินค้า ราคา และร้านค้าไว้เทียบครั้งถัดไป</p>
+      <form id="offer-form">
+        <label class="photo-upload" for="photo"><div id="photo-preview">${state.imagePreview ? `<img src="${esc(state.imagePreview)}" alt="ภาพสินค้า">` : `<span>▧</span><strong>เพิ่มรูปสินค้า</strong><small>แตะเพื่อเลือกรูปภาพ</small>`}</div></label>
+        <input id="photo" name="photo" type="file" accept="image/*" capture="environment" hidden>
+        <label>ชื่อสินค้า <b>*</b><input name="name" required maxlength="100" placeholder="เช่น นมสด UHT รสจืด"></label>
+        <label>แบรนด์<input name="brand" maxlength="60" placeholder="เช่น Dutch Mill"></label>
+        <label class="store-field">เจอที่ร้านไหน? <b>*</b><span class="store-input-wrap"><span class="store-icon">⌂</span><input id="store-input" name="store" required maxlength="80" autocomplete="off" placeholder="พิมพ์ชื่อร้าน หรือแตะเลือกด้านล่าง"></span></label>
+        <div class="store-options"><span class="store-options-label">เลือกร้านที่เคยบันทึกหรือร้านยอดนิยม</span><div class="store-chips">${storeChoices().map(name => `<button type="button" class="store-chip" data-action="select-store" data-store="${esc(name)}">${esc(name)}</button>`).join('')}</div><small>ไม่พบร้านที่ต้องการ? พิมพ์ชื่อร้านใหม่ด้านบนได้เลย</small></div>
+        <label>ราคา (บาท) <b>*</b><input name="price" type="number" min="0.01" max="100000000" step="0.01" required inputmode="decimal" placeholder="89"></label>
+        <details class="advanced-details"><summary><span class="advanced-icon">＋</span><span><strong>เพิ่มข้อมูลเพิ่มเติม</strong><small>ปริมาณ · สาขา · ลิงก์ · โน้ต</small></span><span class="advanced-arrow">⌄</span></summary>
+          <div class="advanced-fields">
+            <label>ปริมาณสินค้า<div class="quantity"><input name="quantity" type="number" min="0.01" max="100000000" step="0.01" value="1" inputmode="decimal"><select name="unit"><option value="piece">ชิ้น</option><option value="g">กรัม</option><option value="kg">กก.</option><option value="ml">มล.</option><option value="l">ลิตร</option></select></div></label>
+            <label>สาขา / พื้นที่<input name="location" maxlength="100" placeholder="เช่น สาขาพระราม 4 หรือ ออนไลน์"></label>
+            <label>ลิงก์ไปซื้อ (ถ้ามี)<input name="purchaseUrl" type="url" maxlength="500" placeholder="https://..."></label>
+            <label>รายละเอียดเพิ่มเติม<textarea name="notes" rows="2" maxlength="300" placeholder="เช่น แพ็ค 4 กล่อง โปรถึงสิ้นเดือน"></textarea></label>
+          </div>
+        </details>
+        <p class="form-hint">${state.mode === 'online' ? 'บันทึกใน Firebase ส่วนตัวของเบราว์เซอร์นี้ ยังไม่แชร์กับคนอื่น' : 'ข้อมูลจะเก็บในเบราว์เซอร์นี้จนกว่าจะเชื่อม Firebase ได้'}</p>
+        <button class="submit" type="submit" ${state.busy ? 'disabled' : ''}>${state.busy ? 'กำลังบันทึก…' : 'บันทึกราคานี้ →'}</button>
+      </form>
+    </section></div>`;
+}
+function footer() { return `<nav class="bottom-nav"><button class="${state.view === 'feed' ? 'active' : ''}" data-action="feed"><span>⌂</span>หน้าแรก</button><button class="${state.view === 'search' ? 'active' : ''}" data-action="search"><span>⌕</span>ค้นหา</button><button class="add-nav" data-action="open-form"><span>＋</span>บันทึก</button><button class="${state.view === 'profile' ? 'active' : ''}" data-action="profile"><span>◉</span>โปรไฟล์</button></nav>`; }
+function render() {
+  const localCount = localSavedOffers().length;
+  const dataStatus = state.mode === 'online'
+    ? `ทดลองส่วนตัว · Firebase เฉพาะบัญชีนี้${localCount ? ` · ${localCount} รายการเดิมยังอยู่ในเครื่อง` : ''}`
+    : state.mode === 'connecting' ? 'กำลังเชื่อม Firebase ส่วนตัว…' : 'ออฟไลน์ · ข้อมูลเก็บในเบราว์เซอร์นี้';
+  root.innerHTML = `<div class="app-shell">${topbar()}<main>${state.error ? `<div class="error-banner">${esc(state.error)}</div>` : ''}<div class="demo-banner">${dataStatus}</div>${state.view === 'detail' ? detail() : state.view === 'profile' ? profile() : feed()}</main>${footer()}${state.view === 'feed' ? `<button class="floating-add" data-action="open-form" aria-label="เพิ่มราคา">＋</button>` : ''}${state.modal ? form() : ''}<div id="toast" aria-live="polite"></div></div>`;
+  const search = document.querySelector('#search');
+  if (search && state.view !== 'detail' && document.activeElement?.id === 'search') search.focus();
+}
+function toast(message) { const el = document.querySelector('#toast'); if (el) { el.textContent = message; el.classList.add('visible'); setTimeout(() => el.classList.remove('visible'), 3200); } }
+function openForm() { state.modal = true; state.image = null; state.imagePreview = ''; render(); }
+async function compress(file) {
+  const bitmap = await createImageBitmap(file);
+  const scale = Math.min(1, 720 / Math.max(bitmap.width, bitmap.height));
+  const canvas = document.createElement('canvas'); canvas.width = Math.round(bitmap.width * scale); canvas.height = Math.round(bitmap.height * scale);
+  canvas.getContext('2d').drawImage(bitmap, 0, 0, canvas.width, canvas.height); bitmap.close();
+  const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', 0.65));
+  if (!blob) throw new Error('แปลงรูปภาพไม่สำเร็จ');
+  return blob;
+}
+function blobDataUrl(blob) { return new Promise((resolve, reject) => { const reader = new FileReader(); reader.onload = () => resolve(reader.result); reader.onerror = reject; reader.readAsDataURL(blob); }); }
+async function saveOffer(form) {
+  if (state.busy) return;
+  if (state.mode === 'connecting') { toast('กรุณารอเชื่อมข้อมูลส่วนตัวก่อน'); return; }
+  const data = new FormData(form);
+  const name = String(data.get('name') || '').trim(), brand = String(data.get('brand') || '').trim(), store = String(data.get('store') || '').trim();
+  const price = Number(data.get('price')), quantity = Number(data.get('quantity') || 1);
+  if (!name || !store || price <= 0 || quantity <= 0 || price > 100000000 || quantity > 100000000) { toast('กรุณาตรวจสอบชื่อสินค้า ร้านค้า ราคา และปริมาณ'); return; }
+  const offer = { name, brand, productKey: keyFor(name, brand), store, location: String(data.get('location') || '').trim(), purchaseUrl: safeUrl(data.get('purchaseUrl')), price, quantity, unit: String(data.get('unit') || 'piece'), notes: String(data.get('notes') || '').trim(), imageUrl: '', createdAt: Date.now() };
+  state.busy = true; render();
+  try {
+    if (state.image) {
+      offer.imageUrl = await blobDataUrl(await compress(state.image));
+      if (offer.imageUrl.length > 300000) throw new Error('รูปใหญ่เกินไป กรุณาเลือกรูปที่เล็กลง');
+    }
+    if (state.mode === 'online') {
+      await cloud.dbSdk.addDoc(cloud.dbSdk.collection(cloud.db, 'users', cloud.uid, 'offers'), offer);
+    } else {
+      offer.id = `local-${Date.now()}`;
+      const next = [offer, ...state.offers]; writeLocal(next); state.offers = next;
+    }
+    state.modal = false; state.image = null; state.imagePreview = ''; state.view = 'feed'; state.query = ''; render(); toast('บันทึกราคาเรียบร้อยแล้ว');
+  } catch (error) { state.error = `บันทึกราคาไม่สำเร็จ: ${error.message}`; render(); }
+  finally { state.busy = false; }
+}
+
+root.addEventListener('click', event => {
+  const trigger = event.target.closest('[data-action]'); if (!trigger) return;
+  const action = trigger.dataset.action;
+  if (action === 'select-store') {
+    const input = document.querySelector('#store-input');
+    if (!input) return;
+    input.value = trigger.dataset.store;
+    document.querySelectorAll('.store-chip').forEach(chip => chip.classList.toggle('selected', chip.dataset.store === input.value));
+    input.focus();
+    return;
+  }
+  if (action === 'open-form') openForm();
+  if (action === 'close-form') { state.modal = false; state.image = null; state.imagePreview = ''; render(); }
+  if (action === 'unit-toggle') { state.showUnitPrice = !state.showUnitPrice; render(); }
+  if (action === 'clear-search') { state.query = ''; render(); document.querySelector('#search')?.focus(); }
+  if (action === 'quick-search') { state.view = 'search'; state.query = trigger.dataset.query; render(); document.querySelector('#search')?.focus(); }
+  if (action === 'feed' || action === 'search' || action === 'profile') { state.view = action; state.query = ''; render(); }
+  if (action === 'detail') { state.selectedKey = trigger.dataset.key; state.view = 'detail'; render(); document.querySelector('main')?.scrollTo(0, 0); }
+  if (action === 'back') { state.view = 'feed'; render(); }
+});
+root.addEventListener('input', event => {
+  if (event.target.id === 'store-input') {
+    document.querySelectorAll('.store-chip').forEach(chip => chip.classList.toggle('selected', normalize(chip.dataset.store) === normalize(event.target.value)));
+    return;
+  }
+  if (event.target.id !== 'search') return;
+  const cursor = event.target.selectionStart;
+  state.query = event.target.value;
+  render();
+  const input = document.querySelector('#search'); input?.focus(); input?.setSelectionRange(cursor, cursor);
+});
+root.addEventListener('change', async event => {
+  if (event.target.id !== 'photo') return;
+  const file = event.target.files?.[0]; if (!file) return;
+  if (!file.type.startsWith('image/')) { toast('กรุณาเลือกรูปภาพ'); return; }
+  state.image = file;
+  state.imagePreview = URL.createObjectURL(file);
+  document.querySelector('#photo-preview').innerHTML = `<img src="${esc(state.imagePreview)}" alt="ภาพสินค้าที่เลือก">`;
+});
+root.addEventListener('submit', event => { if (event.target.id === 'offer-form') { event.preventDefault(); saveOffer(event.target); } });
+
+state.offers = readLocal(); state.loading = false; render(); connectFirebase();
+
+    </script>
+  </body>
+</html>
